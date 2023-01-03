@@ -1,0 +1,78 @@
+/* Ukoliko postoji paragrafa */
+/* Podesavanje strukture BEFORE-ispred paragrafa */
+/* Podesavanje */
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: Gotham Rounded, sans-serif;
+    font-weight: normal;
+}
+
+/* BODY */
+body {
+    margin: 0px;
+    padding: 0;
+    background: linear-gradient(to right, #CBCE91FF, #EA738DFF);
+}
+
+/* GRID kalkulatora */
+.calculator-grid {
+    /* Izgled mreze kalkulatora */
+    display: grid;
+    justify-content: center;
+    /* da se centrira sadrzaj button */
+    align-content: center;
+    /* VH- vertkalne jedinice */
+    min-height: 100vh;
+     /* da se dugmad nalaze jedan pored drugog */
+     /* repeat(4 kolona, po 100 piksela */
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+}
+
+.calculator-grid > button {
+    cursor: pointer;
+    font-size: 2rem;
+    border: 1px solid #ffffff;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.75);
+}
+
+.calculator-grid > button:hover {
+    background-color: #a9a9a9;
+}
+
+.span-two {
+    grid-column: span 2;
+    color: #adf802;
+    /* !IMPORTANT- da bi vazilo */
+    background-color: rgba(139, 0, 139, 0.8) !important;
+}
+
+.output {
+    /* ivice su od 1 do -1 - prva i poslednja ivica */
+    /* 1 / - 1 - da output se prosiri kroz celu kolonu */
+    /* - 1- oznacava poslednju kolonu */
+    /* ili span 4 za istu vrednost */
+    grid-column: 1 / -1;
+    background-color: rgba(0, 0, 0, 0.75);
+    /* prikaz */
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 10px;
+    /* prelom teksta */
+    word-wrap: break-word;
+    /* prelom- da bi sve stalo u jedan sadrzaj */
+    word-break: break-all;
+}
+
+.output .previous-operand {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 1.5rem;
+}
+
+.output .current-operand {
+    color: white;
+    font-size: 2.5rem;
+}
